@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leadfeeder thay Kickfire: Dashboard đánh giá</title>
+<style>
+:root{--bg:#f5f6f4;--surf:#fff;--ink:#16211d;--mute:#5d6b65;--line:#dde3df;--a:#0f6b5c;--b:#c2410c;--c:#6b7a99;--d:#b9c1bd;--good:#0f6b5c;--bad:#b42318;--warn:#a16207;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1512;--surf:#16201c;--ink:#e8efeb;--mute:#93a39b;--line:#26332d;--a:#3fb7a0;--b:#f08a4b;--c:#8fa0c4;--d:#4a5852;--good:#3fb7a0;--bad:#f07a6e;--warn:#e0b04a}}
+:root[data-theme="dark"]{--bg:#0e1512;--surf:#16201c;--ink:#e8efeb;--mute:#93a39b;--line:#26332d;--a:#3fb7a0;--b:#f08a4b;--c:#8fa0c4;--d:#4a5852;--good:#3fb7a0;--bad:#f07a6e;--warn:#e0b04a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;line-height:1.5}
+main{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:0 0 6px;letter-spacing:-.02em;line-height:1.2}
+h2{font-size:1.1rem;margin:0 0 4px}
+p.sub{color:var(--mute);margin:0 0 20px;max-width:70ch}
+.verdict{background:var(--a);color:#fff;border-radius:6px;padding:18px 22px;margin-bottom:20px}
+.verdict strong{display:block;font-size:1.15rem;margin-bottom:4px}
+.verdict span{opacity:.92}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--surf);border:1px solid var(--line);border-radius:6px;padding:14px}
+.kpi b{font-size:1.7rem;display:block;line-height:1.1}
+.kpi small{color:var(--mute)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:6px;padding:20px;margin-bottom:18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.note{color:var(--mute);font-size:.88rem;margin:4px 0 14px}
+.row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 62px;gap:10px;align-items:center;margin:7px 0;font-size:.9rem}
+.track{background:var(--line);height:14px;border-radius:3px;overflow:hidden}
+.fill{height:100%;display:block}
+.row span.v{text-align:right;font-variant-numeric:tabular-nums}
+.stack{display:flex;height:34px;border-radius:4px;overflow:hidden;margin:10px 0 12px}
+.stack div{display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:600;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.84rem}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:520px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{font-weight:600;color:var(--mute)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.78rem;font-weight:600;border:1px solid currentColor}
+.t-good{color:var(--good)}.t-warn{color:var(--warn)}.t-bad{color:var(--bad)}
+ul{margin:6px 0 0;padding-left:20px}
+li{margin:5px 0}
+.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:.86rem;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:6px 12px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+h3{font-size:.98rem;margin:22px 0 6px}
+.card p{margin:6px 0}
+.card p.note{margin:4px 0 14px}
+@media (max-width:520px){.row{grid-template-columns:100px 1fr 54px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Leadfeeder có thay được Kickfire không?</h1>
+<p class="sub">Đã test 4.452 IP, ưu tiên IP Mỹ. Tốn 3.468 trên 5.000 API Match của trial. Gọi từ Việt Nam, ~940 ms/request, không có lỗi 429.</p>
+
+<div class="verdict"><strong>Kết luận: thay được nếu đáp ứng 5 điều kiện.</strong><span>Leadfeeder là ứng viên tốt nhất đã thử. Khi hai bên lệch domain, Leadfeeder thường đúng hơn (~40% so với ~20%).</span></div>
+
+<div class="kpis">
+<div class="kpi"><b>91,9%</b><small>IP Mỹ Kickfire good ra company</small></div>
+<div class="kpi"><b>88,7%</b><small>company có domain</small></div>
+<div class="kpi"><b>45%</b><small>trùng domain với Kickfire</small></div>
+<div class="kpi"><b>97%</b><small>firmographic có nhân sự</small></div>
+<div class="kpi"><b>~40%</b><small>lệch: Leadfeeder đúng tổ chức</small></div>
+<div class="kpi"><b>4.452</b><small>IP đã test</small></div>
+<div class="kpi"><b>3.468 / 5.000</b><small>API Match đã dùng của trial</small></div>
+</div>
+
+<div class="card">
+<h2>Kết quả theo nhóm mẫu</h2>
+<p class="note">Bấm để đổi chỉ số hiển thị. Cách tính từng chỉ số xem bảng giải thích bên dưới.</p>
+<div class="tabs" id="tabs">
+<button data-k="co" aria-pressed="true">Ra company</button>
+<button data-k="sn" aria-pressed="false">Ra shared_network</button>
+<button data-k="nd" aria-pressed="false">Không có domain</button>
+<button data-k="mt" aria-pressed="false">Trùng domain Kickfire</button>
+</div>
+<div id="bars"></div>
+<h3>Giải thích các nhóm mẫu</h3>
+<div class="tw"><table>
+<thead><tr><th>Nhóm</th><th>Ý nghĩa</th><th>Dùng để đo</th><th>Kết quả chính</th><th class="n">Số IP</th></tr></thead>
+<tbody>
+<tr><td>agree</td><td>Kickfire good, IPinfo good, cùng domain. Hai vendor độc lập đã đồng ý nên dùng gần như đáp án đúng.</td><td>Leadfeeder có trùng với đáp án này không</td><td>98,6% ra company; 69,1% trùng domain Kickfire</td><td class="n">1.024</td></tr>
+<tr><td>disagree</td><td>Kickfire good, IPinfo good, nhưng khác domain.</td><td>Ai đúng ở các IP khó</td><td>94,5% ra company; 24,1% trùng domain Kickfire</td><td class="n">1.027</td></tr>
+<tr><td>kf_good_only</td><td>Kickfire good, IPinfo không good (thường IPinfo trả ISP).</td><td>Leadfeeder có giữ được độ phủ của Kickfire không</td><td>83,8% ra company; 39,2% trùng domain Kickfire</td><td class="n">1.222</td></tr>
+<tr><td>kf_notgood</td><td>Kickfire có match nhưng checkValid loại (ISP/mobile/wifi).</td><td>Leadfeeder lọc nhà mạng thế nào</td><td>51,6% ra company; 48,1% ra shared_network</td><td class="n">628</td></tr>
+<tr><td>kf_nomatch</td><td>Kickfire không trả kết quả.</td><td>Leadfeeder có tìm thêm được company không</td><td>26,7% ra company; 73,1% ra shared_network</td><td class="n">521</td></tr>
+<tr><td>ipv6</td><td>IPv6, chỉ có trong lần chạy pilot.</td><td>Xem Leadfeeder xử lý IPv6 thế nào</td><td>0 ra company; 30/30 ra shared_network</td><td class="n">30</td></tr>
+</tbody></table></div>
+<p class="note" style="margin-top:10px">Phân nhóm dựa trên dữ liệu Kickfire và IPinfo có sẵn trong sheet. Số IP là số IP đã gọi Leadfeeder của từng nhóm.</p>
+<h3>Giải thích các chỉ số</h3>
+<div class="tw"><table>
+<thead><tr><th>Chỉ số</th><th>Ý nghĩa</th><th>Cách tính</th></tr></thead>
+<tbody>
+<tr><td>Ra company</td><td>Leadfeeder trả về một công ty (company_type = company) và bị tính 1 API Match.</td><td>IP ra company ÷ số IP của nhóm</td></tr>
+<tr><td>Ra shared_network</td><td>Leadfeeder xác định IP thuộc nhà mạng (ISP, hosting, CDN, proxy). Không trả company, không bị tính match.</td><td>IP ra shared_network ÷ số IP của nhóm</td></tr>
+<tr><td>Không có domain</td><td>Có company nhưng thiếu url và alternative_urls, nên không tạo được company.</td><td>IP không có domain ÷ số IP ra company</td></tr>
+<tr><td>Trùng domain Kickfire</td><td>Domain Leadfeeder trả giống domain Kickfire. Chỉ tính được ở 3 nhóm Kickfire good, các nhóm còn lại là n/a.</td><td>IP trùng domain ÷ số IP ra company</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h2>Gán nhãn tay: 300 IP lệch domain</h2>
+<p class="note">Mẫu là IP Mỹ Kickfire good nhưng Leadfeeder trả domain khác. Bằng chứng: RDAP, PTR, DNS.</p>
+<div id="label"></div>
+</div>
+<div class="card">
+<h2>Ước tính trên ~1.300 IP lệch</h2>
+<p class="note">Khi hai bên lệch nhau, ai đúng hơn?</p>
+<div class="stack" id="est"></div>
+<div class="legend" id="estl"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Chấm điểm theo tiêu chí</h2>
+<div class="tw"><table>
+<thead><tr><th>Tiêu chí</th><th>Kết quả</th><th>Đánh giá</th></tr></thead>
+<tbody>
+<tr><td>Độ phủ IP Mỹ Kickfire đã nhận diện</td><td>91,9% ra company</td><td><span class="tag t-good">Ngang Kickfire</span></td></tr>
+<tr><td>Tìm thêm ở IP Kickfire bỏ qua</td><td>27% không match, 52% "not good"</td><td><span class="tag t-warn">Confidence thấp</span></td></tr>
+<tr><td>Lọc nhà mạng</td><td>shared_network bắt ISP, hosting, CDN, proxy</td><td><span class="tag t-good">Tốt hơn</span></td></tr>
+<tr><td>Trùng domain với Kickfire</td><td>45% toàn bộ; 70% nhóm cùng domain Kickfire + IPinfo</td><td><span class="tag t-warn">Xem gán nhãn tay</span></td></tr>
+<tr><td>Có domain để tạo company</td><td>88,7%</td><td><span class="tag t-warn">Mất ~11%</span></td></tr>
+<tr><td>Firmographic</td><td>Địa chỉ 79–87%, nhân sự 97%, revenue 68%, LinkedIn 73%</td><td><span class="tag t-good">Tốt, thiếu NAICS/SIC</span></td></tr>
+<tr><td>Confidence để lọc</td><td>very_high/high trùng 54–60%, low 24%</td><td><span class="tag t-good">Dùng được</span></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h2>Điểm mạnh và điểm yếu</h2>
+<ul>
+<li><b class="t-bad">Yếu:</b> doanh nghiệp nhỏ có dải IP đăng ký riêng (SWIP) trên Charter/Comcast. Trong nhóm Kickfire và IPinfo cùng domain, Kickfire đúng 37 IP, Leadfeeder đúng 10.</li>
+<li><b class="t-good">Mạnh:</b> IP qua MSP hoặc mạng giáo dục/chính quyền. Leadfeeder trả tổ chức thật dùng IP: OARnet thành University of Akron, State of NC thành Nash County.</li>
+</ul>
+</div>
+<div class="card">
+<h2>Điều kiện để thay</h2>
+<ul>
+<li>Viết lại checkValid, map company_type thành cờ (không có isISP/isMobile/isWifi).</li>
+<li>Chuẩn hoá domain từ url, thêm blacklist domain rác.</li>
+<li>Lấy NAICS/SIC hoàn toàn từ CAPI.</li>
+<li>Dùng kết quả gán nhãn tay để quyết định bên nào đúng khi lệch domain.</li>
+<li>Có báo giá gói API-only và đã xem DPA.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h2>Nhóm agree: 300 IP lệch (30%)</h2>
+<p class="note">Kickfire và IPinfo cùng domain, Leadfeeder trả kết quả khác.</p>
+<div id="agree"></div>
+<p class="note" style="margin-top:14px">Trong nhóm "công ty khác hẳn" (114 IP): một phần là đổi tên/sáp nhập (AES Indiana, Cellphone-Mate và SureCall); một phần Leadfeeder có thể đúng hơn vì Kickfire và IPinfo cùng dựa WHOIS (Network Outsource / Central Islip Schools, State of NC / Nash County); một phần Leadfeeder sai rõ (sourcing.hktdc.com cho American Dehydrated Foods).</p>
+</div>
+
+<div class="card">
+<h2>API Match bị tính: 3.468 / 5.000 của trial</h2>
+<p>API Match là lượt Leadfeeder tính tiền: response 200 trả về company (company_type = company, meta.num_results = 1). Response shared_network (nhà mạng) không bị tính.</p>
+<div class="stack"><div style="width:77.9%;background:var(--a)">3.468 bị tính</div><div style="width:22.1%;background:var(--d);color:var(--ink)">984 không tính</div></div>
+<div class="legend"><span><i style="background:var(--a)"></i>Trả về company: tính 1 match</span><span><i style="background:var(--d)"></i>Nhà mạng hoặc không có dữ liệu company</span></div>
+<p style="margin-top:14px">Quota trial: đã dùng 3.468 trên 5.000, còn khoảng 1.500 match.</p>
+<div class="track" style="height:20px"><span class="fill" style="width:69.4%;background:var(--b)"></span></div>
+<ul>
+<li>Gọi 4.452 IP nhưng chỉ tốn 3.468 match. 984 IP còn lại là nhà mạng hoặc không có dữ liệu company.</li>
+<li>5.000 là giới hạn match của trial, theo xác nhận của Leadfeeder qua live chat.</li>
+<li>Khoảng 1.500 match còn lại dùng để test thêm. Con số này chưa trừ vài lượt gọi tay trên Postman.</li>
+<li><b>Trial hết hạn không tự tính tiền:</b> Leadfeeder xác nhận khi hết trial hoặc hết 5.000 match, tài khoản không tự chuyển sang gói trả phí và không phát sinh hoá đơn. Vượt giới hạn thì API chỉ trả lỗi quota_exceeded.</li>
+</ul>
+<p class="note" style="margin-top:12px">Thông lượng: 2 luồng, ~2,1 request/giây. Khoảng 10 lỗi mạng tạm thời, tự retry thành công.</p>
+</div>
+</main>
+<script>
+var G=[
+{n:"agree",t:1024,co:1010,sn:14,nd:95,mt:698},
+{n:"disagree",t:1027,co:971,sn:55,nd:121,mt:234},
+{n:"kf_good_only",t:1222,co:1024,sn:195,nd:91,mt:401},
+{n:"kf_notgood",t:628,co:324,sn:302,nd:53,mt:null},
+{n:"kf_nomatch",t:521,co:139,sn:381,nd:32,mt:null},
+{n:"ipv6",t:30,co:0,sn:30,nd:0,mt:null}];
+var fmt=function(x){return x.toLocaleString("vi-VN",{maximumFractionDigits:1})};
+function bars(k){
+ var h="";
+ G.forEach(function(g){
+  var den=(k==="nd")?g.co:g.t,num=g[k];
+  if(k==="mt"){den=g.co;}
+  if(num===null||!den){h+='<div class="row"><span>'+g.n+'</span><span class="track"></span><span class="v">n/a</span></div>';return;}
+  var p=den?num/den*100:0;
+  h+='<div class="row"><span>'+g.n+' <small style="color:var(--mute)">('+num+')</small></span><span class="track"><span class="fill" style="width:'+p+'%;background:var(--a)"></span></span><span class="v">'+fmt(p)+'%</span></div>';
+ });
+ document.getElementById("bars").innerHTML=h;
+}
+bars("co");
+document.querySelectorAll("#tabs button").forEach(function(b){
+ b.addEventListener("click",function(){
+  document.querySelectorAll("#tabs button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+  b.setAttribute("aria-pressed","true");bars(b.dataset.k);
+ });
+});
+function hbars(id,data,total){
+ var max=Math.max.apply(null,data.map(function(d){return d[1]}));
+ document.getElementById(id).innerHTML=data.map(function(d){
+  return '<div class="row"><span>'+d[0]+'</span><span class="track"><span class="fill" style="width:'+d[1]/max*100+'%;background:'+d[2]+'"></span></span><span class="v">'+d[1]+'</span></div>';
+ }).join("");
+}
+hbars("label",[
+["Leadfeeder đúng, Kickfire sai",46,"var(--a)"],
+["Kickfire đúng, Leadfeeder sai",73,"var(--b)"],
+["Cùng tổ chức, domain dùng được",51,"var(--a)"],
+["Công ty liên quan (mẹ/con, đổi tên)",22,"var(--a)"],
+["Đúng tổ chức, domain sai",27,"var(--c)"],
+["Cả hai sai (mobile, hosting/VPN)",28,"var(--bad)"],
+["Không đủ bằng chứng",53,"var(--d)"]]);
+hbars("agree",[
+["Domain Kickfire trong alternative_urls",7,"var(--a)"],
+["Tên trùng (alias, đổi tên, công ty con)",84,"var(--a)"],
+["Leadfeeder không có domain",95,"var(--d)"],
+["Công ty khác hẳn",114,"var(--b)"]]);
+var E=[["Leadfeeder đúng tổ chức",40,"var(--a)"],["Kickfire đúng, Leadfeeder sai",20,"var(--b)"],["Cả hai sai",12,"var(--bad)"],["Đúng tổ chức, domain sai",8,"var(--c)"],["Không xác định",20,"var(--d)"]];
+document.getElementById("est").innerHTML=E.map(function(e){return '<div style="width:'+e[1]+'%;background:'+e[2]+'">~'+e[1]+'%</div>'}).join("");
+document.getElementById("estl").innerHTML=E.map(function(e){return '<span><i style="background:'+e[2]+'"></i>'+e[0]+'</span>'}).join("");
+</script>
+</body>
+</html>
